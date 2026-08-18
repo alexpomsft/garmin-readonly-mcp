@@ -16,8 +16,7 @@ class FakeClient:
 
     def login(self, tokenstore: str) -> tuple[None, None]:
         self.login_path = tokenstore
-        Path(tokenstore, "oauth1_token.json").write_text("{}", encoding="utf-8")
-        Path(tokenstore, "oauth2_token.json").write_text("{}", encoding="utf-8")
+        Path(tokenstore, "garmin_tokens.json").write_text("{}", encoding="utf-8")
         return None, None
 
 
@@ -47,7 +46,7 @@ def test_authenticate_uses_hidden_local_inputs_and_protects_tokens(tmp_path: Pat
     assert created[0].prompt_mfa() == "mfa-code"
     assert created[0].login_path == str(token_dir)
     assert token_dir.stat().st_mode & 0o777 == 0o700
-    assert (token_dir / "oauth1_token.json").stat().st_mode & 0o777 == 0o600
+    assert (token_dir / "garmin_tokens.json").stat().st_mode & 0o777 == 0o600
     assert prompts == ["Garmin password: ", "Garmin MFA code: "]
 
 

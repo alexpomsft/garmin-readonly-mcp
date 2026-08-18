@@ -69,6 +69,6 @@ def authenticate(
     client = client_factory(email, password, lambda: secret_input("Garmin MFA code: "))
     client.login(str(token_dir))
     _validate_token_files(token_dir, protect=True)
-    required_tokens = {"oauth1_token.json", "oauth2_token.json"}
+    required_tokens = {"garmin_tokens.json"}
     if not required_tokens.issubset(entry.name for entry in token_dir.iterdir()):
         raise ValueError("authentication did not create reusable token material")

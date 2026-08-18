@@ -53,10 +53,9 @@ class FakeGarmin:
 
 def make_private_tokens(token_dir: Path) -> None:
     token_dir.mkdir(mode=0o700)
-    for name in ("oauth1_token.json", "oauth2_token.json"):
-        path = token_dir / name
-        path.write_text("{}", encoding="utf-8")
-        path.chmod(0o600)
+    path = token_dir / "garmin_tokens.json"
+    path.write_text("{}", encoding="utf-8")
+    path.chmod(0o600)
 
 
 def test_sync_date_writes_only_normalized_records(tmp_path: Path) -> None:

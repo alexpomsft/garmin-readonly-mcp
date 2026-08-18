@@ -61,7 +61,7 @@ def _validate_private_tokens(token_dir: Path) -> None:
             raise ValueError("Garmin token entries must be regular files")
         if metadata.st_uid != os.getuid() or metadata.st_mode & 0o077:
             raise ValueError("Garmin token material must be owner-only")
-    required_tokens = {"oauth1_token.json", "oauth2_token.json"}
+    required_tokens = {"garmin_tokens.json"}
     if not required_tokens.issubset(entry.name for entry in token_dir.iterdir()):
         raise ValueError("Garmin reusable token material is unavailable")
 
