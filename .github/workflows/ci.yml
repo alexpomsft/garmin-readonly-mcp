@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
+        with:
+          enable-cache: true
+      - name: Install Python
+        run: uv python install 3.12
+      - name: Install locked dependencies
+        run: uv sync --frozen --all-groups
+      - name: Test
+        run: uv run pytest --cov=garmin_readonly_mcp --cov-report=term-missing
+      - name: Lint
+        run: uv run ruff check .
+      - name: Type check
+        run: uv run mypy src tests
+      - name: Audit dependencies
+        run: uv run pip-audit
