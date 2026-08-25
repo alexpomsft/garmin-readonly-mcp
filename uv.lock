@@ -613,7 +613,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "garminconnect", specifier = "==0.3.10" },
+    { name = "garminconnect", specifier = "==0.3.11" },
     { name = "mcp", specifier = "==1.29.0" },
 ]
 
@@ -628,16 +628,16 @@ dev = [
 
 [[package]]
 name = "garminconnect"
-version = "0.3.10"
+version = "0.3.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "curl-cffi" },
     { name = "requests" },
     { name = "ua-generator" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c5/9b/5b854a231d8516fdf682c911aa40a171f8364716f8e8429b06097f5ec668/garminconnect-0.3.10.tar.gz", hash = "sha256:be7d22c76175943afc2bc83c12ffa466e40d67d47cf2a6cf910bab1ca25eaf1e", size = 98982, upload-time = "2026-08-11T07:10:31.719Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/87/06/6e5a241cc004fae441b71903de772ecc30424fb3cd88a28fd8a2b7851a20/garminconnect-0.3.11.tar.gz", hash = "sha256:506198a65351df4ae0ce82b8c317eadf012c238c542d6a557387598e4d9a4044", size = 99452, upload-time = "2026-08-19T07:34:00.43Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f0/32/8ed71ecabce3c83278625ab702310f3ff0c6f999b1381544e10f271e33e2/garminconnect-0.3.10-py3-none-any.whl", hash = "sha256:a3fed44465df36981a6858f23e56417c6e7ac778550464440a5967007378ec88", size = 93220, upload-time = "2026-08-11T07:10:30.333Z" },
+    { url = "https://files.pythonhosted.org/packages/41/bd/4a9ae7aa9fd5b8d49385ed3fa8e88c68b3e0a1d25b78c63b08be988829b8/garminconnect-0.3.11-py3-none-any.whl", hash = "sha256:58568f339b00cc47d01b2dee347a82c491a45996bb13757a050df03b7049f945", size = 93608, upload-time = "2026-08-19T07:33:59.097Z" },
 ]
 
 [[package]]
